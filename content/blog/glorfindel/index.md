@@ -1,6 +1,6 @@
 # Why Glorfindel is More Impressive than Legolas
 
-[< Back Home](/static-sites/)
+[< Back Home](/)
 
 ![Glorfindel image](/images/glorfindel.png)
 
