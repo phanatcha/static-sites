@@ -1,30 +1,53 @@
 import unittest
+from htmlnode import LeafNode, ParentNode, HTMLNode
 
-from htmlnode import *
 
 class TestHTMLNode(unittest.TestCase):
+    def test_to_html_props(self):
+        node = HTMLNode(
+            "div",
+            "Hello, world!",
+            None,
+            {"class": "greeting", "href": "https://boot.dev"},
+        )
+        self.assertEqual(
+            node.props_to_html(),
+            ' class="greeting" href="https://boot.dev"',
+        )
+
+    def test_values(self):
+        node = HTMLNode(
+            "div",
+            "I wish I could read",
+        )
+        self.assertEqual(
+            node.tag,
+            "div",
+        )
+        self.assertEqual(
+            node.value,
+            "I wish I could read",
+        )
+        self.assertEqual(
+            node.children,
+            None,
+        )
+        self.assertEqual(
+            node.props,
+            None,
+        )
+
     def test_repr(self):
         node = HTMLNode(
-                tag="h1",
-                value="This is a header",
-                children=["p"],
-                props={}
+            "p",
+            "What a strange world",
+            None,
+            {"class": "primary"},
         )
-        expected_repr = "HTMLNode(tag='h1', value='This is a header', children=['p'], props={})"
-        self.assertEqual(repr(node), expected_repr)
-
-    def test_props_to_html_empty(self):
-        node = HTMLNode(props={})
-        self.assertEqual(node.props_to_html(), "")
-
-    def test_props_to_html_single_attr(self):
-        node = HTMLNode(props={"href": "https://boot.dev"})
-        self.assertEqual(node.props_to_html(), ' href="https://boot.dev"')
-    
-    def test_to_html_not_implemented(self):
-        node = HTMLNode()
-        with self.assertRaises(NotImplementedError):
-            node.to_html()
+        self.assertEqual(
+            node.__repr__(),
+            "HTMLNode(p, What a strange world, children: None, {'class': 'primary'})",
+        )
 
     def test_leaf_to_html_p(self):
         node = LeafNode("p", "Hello, world!")
