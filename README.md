@@ -3,7 +3,7 @@
 A lightweight and minimal Static Site Generator (SSG) that converts Markdown files into a static website ready for GitHub Pages.
 It’s simple, fast, and perfect for learning how static sites work under the hood.
 
-> Repo: [`phanatcha/static-sites`](https://github.com/phanatcha/static-sites)
+> Repo: [phanatcha/static-sites](https://github.com/phanatcha/static-sites)
 > Demo (GitHub Pages): https://phanatcha.github.io/static-sites/
 
 ---
